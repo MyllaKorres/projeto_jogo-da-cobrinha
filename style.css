@@ -1,0 +1,23 @@
+﻿body {
+    background-color: #052800;
+    height: 95vh;
+    width: 95;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Century Gothic';
+    color: white;
+    font-size: 30px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.btn {
+    margin-left: 73px;
+    margin-bottom: 13px;
+}
