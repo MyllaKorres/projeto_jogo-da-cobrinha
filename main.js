@@ -1,5 +1,7 @@
 function start() {
 
+    $(".btn").hide();
+
     let canvas = document.getElementById("snake");
     let context = canvas.getContext("2d");
     let box = 32; // tamanho do quadrado
@@ -26,9 +28,9 @@ function start() {
         while (match == 1) {
             match = 0;
             food = {
-                // Math.floor(x) = retorna o menor número inteiro dentre o número "x"
+                // Math.floor(x) = retorna o menor nÃºmero inteiro dentre o nÃºmero "x"
                 // exemplo: Math.floor(45.95) retorna 45, enquanto Math.floor(-45.95) retorna -46.
-                // Math.random() = retorna um número pseudo-aleatório no intervalo [0, 1[
+                // Math.random() = retorna um nÃºmero pseudo-aleatÃ³rio no intervalo [0, 1[
                 x: Math.floor(Math.random() * (grid - 1) + 1) * box,
                 y: Math.floor(Math.random() * (grid - 1) + 1) * box
             }
@@ -64,7 +66,7 @@ function start() {
         context.fillRect(food.x, food.y, box, box);
     }
 
-    document.addEventListener('keydown', update); // quando um evento acontece, detecta e chama uma função
+    document.addEventListener('keydown', update); // quando um evento acontece, detecta e chama uma funÃ§Ã£o
 
     function update(event) {
         if (pressedDirection == 0) {
@@ -101,6 +103,7 @@ function start() {
             if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
                 time = 0;
                 context.drawImage(gameover, 0, 0);
+                $(".btn").show();
             }
         }
 
@@ -114,7 +117,7 @@ function start() {
         pressedDirection = 0;
 
         if (snakeX != food.x || snakeY != food.y) {
-            snake.pop(); // retira o último elemento
+            snake.pop(); // retira o ï¿½ltimo elemento
         }
         else {
             food.x = Math.floor(Math.random() * 15 + 1) * box;
@@ -129,7 +132,7 @@ function start() {
             y: snakeY
         }
 
-        snake.unshift(newHead); // incrementa um novo elemento no começo
+        snake.unshift(newHead); // incrementa um novo elemento no comeÃ§o
 
         if (time != 0) setTimeout(loop, time);
     }
